@@ -1,4 +1,6 @@
 # Fabric Defect Detection using YOLOv8
+![WhatsApp Image 2024-12-29 at 9 19 58 AM](https://github.com/user-attachments/assets/b401317a-da4a-4645-a67b-ca7bfb0e2732)
+
 
 ## Overview
 This project focuses on fabric defect detection using YOLOv8 for object detection and classification. It identifies and classifies multiple fabric defects within the same object, improving quality control in textile manufacturing.
