@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>YOLO Image Detection</title>
+</head>
+<body>
+    <h1>YOLO Image Detection</h1>
+    <input type="file" accept="image/*" id="imageInput" />
+    <button id="predictButton">Predict</button>
+    <div id="results" style="margin-top: 20px;">
+        <table>
+            <!-- <thead>
+                <th>
+                    <td>Uploaded Image</td>
+                    <td>Predicted Image</td>
+                </th>
+            </thead> -->
+            <tr>
+                <td><div id="uploadedImage"></div></td>
+                <td>     </td>
+                <td><div id="predictedImage"></div></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        const imageInput = document.getElementById("imageInput");
+        const predictButton = document.getElementById("predictButton");
+        const resultsDiv = document.getElementById("results");
+
+        let selectedImage = null;
+
+        // Handle image upload
+        imageInput.addEventListener("change", (event) => {
+            selectedImage = event.target.files[0];
+            if (selectedImage) {
+                const reader = new FileReader();
+                reader.onload = () => {
+                    const uploadedImage = document.getElementById("uploadedImage");
+                    uploadedImage.innerHTML = `
+                        <h3>Uploaded Image:</h3>
+                        <img src="${reader.result}" alt="Uploaded Image">
+                    `;
+                };
+                reader.readAsDataURL(selectedImage);
+            }
+        });
+
+        // Handle prediction
+        predictButton.addEventListener("click", async () => {
+            if (!selectedImage) {
+                alert("Please select an image first!");
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append("image", selectedImage);
+
+            try {
+                const response = await fetch("http://127.0.0.1:5000/predict", {
+                    method: "POST",
+                    body: formData,
+                });
+
+                if (!response.ok) {
+                    throw new Error("Prediction failed");
+                }
+
+                const data = await response.json();
+                const predictedImage = document.getElementById("predictedImage");
+                predictedImage.innerHTML = `
+                    <h3>Prediction Result:</h3>
+                    <img src="data:image/jpeg;base64,${data.annotated_image}" alt="Prediction Result">
+                `;
+            } catch (error) {
+                console.error("Error predicting image:", error);
+                alert("Error predicting the image. Please try again.");
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+/* General Body Styling */
+body {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+    color: #333;
+}
+
+/* Header Style */
+h1 {
+    margin-top: 30px;
+    color: #ff6b6b;
+    font-size: 3em;
+    text-shadow: 2px 2px 5px #ff477e;
+    letter-spacing: 2px;
+}
+
+/* File Input Style */
+input[type="file"] {
+    margin: 20px 0;
+    padding: 12px;
+    border: 2px dashed #ff6b6b;
+    border-radius: 10px;
+    background-color: #fff5f8;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+input[type="file"]:hover {
+    background-color: #ffe6e9;
+    transform: scale(1.05);
+}
+
+/* Button Style */
+button {
+    padding: 12px 25px;
+    margin: 10px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, #12c2e9, #c471ed, #f64f59);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #f64f59, #c471ed, #12c2e9);
+    transform: scale(1.1) rotate(-2deg);
+}
+
+/* Uploaded Image Style */
+img {
+    max-width: 100%;
+    max-height: 400px;
+    margin: 20px auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    border: 5px solid #ff6b6b;
+}
+
+/* Result Section Style */
+#results {
+    margin-top: 20px;
+    padding: 25px;
+    background: linear-gradient(135deg, #ffdde1 0%, #ee9ca7 100%);
+    border: 2px solid #ff6b6b;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Heading Inside Result Section */
+#results h3 {
+    color: #e63946;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    text-shadow: 1px 1px 3px #ff9a9e;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5em;
+    }
+    button {
+        padding: 10px 20px;
+    }
+    img {
+        max-height: 300px;
+    }
+}
