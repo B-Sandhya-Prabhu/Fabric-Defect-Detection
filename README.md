@@ -26,7 +26,7 @@ python Yolo_train.py
 ```
 
 ## Accuracy Calculation
-The script `accuracy.py` is used to evaluate the trained model's performance.
+The script `accuracy.py` is used to evaluate the trained models performance.
 ```bash
 python accuracy.py
 ```
